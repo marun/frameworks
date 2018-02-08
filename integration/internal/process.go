@@ -73,7 +73,8 @@ func DoDefaulting(
 		if name == "" {
 			return DefaultedProcessInput{}, fmt.Errorf("must have at least one of name or path")
 		}
-		defaults.Path = BinPathFinder(name)
+		// Rely on the binary being in the path
+		defaults.Path = name
 	}
 
 	if startTimeout == 0 {
